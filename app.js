@@ -39,7 +39,8 @@ app.use(
 );
 
 const mongoURI =
-  "mongodb+srv://darshan:darshan@cluster0.z1j1dui.mongodb.net/?retryWrites=true&w=majority";
+  process.env.DB_CONNECTION_STRING ||
+  "mongodb://localhost:27017/tested";
 
 mongoose.set("strictQuery", true);
 mongoose.connect(mongoURI);
